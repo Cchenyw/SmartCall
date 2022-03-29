@@ -126,7 +126,7 @@ class MissionCenter:
                 headers = v
             elif k == 'cookies':
                 cookies = v
-        return requests.put(f'{base_url}/api/task/{task_id}/numbers/upload', headers=headers, cookies=cookies,
+        return requests.post(f'{base_url}/api/task/{task_id}/numbers/upload', headers=headers, cookies=cookies,
                             files={'file': excel_file})
 
 
@@ -173,5 +173,5 @@ if __name__ == "__main__":
     print(test.add_numbers(t_id,
                            '[{"number": "18218644344", "contact": "jack", "enterprise": "jack\'s", "vars": {}}]').json())
     # upload_numbers
-    e_file = open('/test.xlsx', 'rb')
+    e_file = open('C:/Users/TUNGEE/Desktop/数据流/random_phone_number/随机生成号码包20.xlsx', 'rb')
     print(test.upload_numbers(t_id, e_file).json())
